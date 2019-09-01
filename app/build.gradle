@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.main.zlw.zlwaudiorecorder"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    androidTestImplementation('com.android.support:support-annotations:28.0.0') {
+        force = true
+    }
+
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.blankj:utilcode:1.18.0'
+    implementation 'com.yanzhenjie.permission:support:2.0.1'
+    implementation project(path: ':recorderlib')
+    implementation 'com.github.zhaolewei:Logger:1.0.1'
+}
